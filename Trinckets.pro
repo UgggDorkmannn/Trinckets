@@ -30,19 +30,27 @@ SOURCES += \
     NineButtons.cpp \
     SortString.cpp \
     SpotsOnXY.cpp \
-    SpotsDialog.cpp
+    SpotsDialog.cpp \
+    MergeColumns.cpp \
+	Notepad.cpp \
+    SearchPanel.cpp
 
 HEADERS += \
         Widget.h \
     NineButtons.h \
     SortString.h \
     SpotsOnXY.h \
-    SpotsDialog.h
+    SpotsDialog.h \
+    MergeColumns.h \
+	Notepad.h \
+    SearchPanel.h
 
 FORMS += \
         Widget.ui \
     SortString.ui \
-    SpotsDialog.ui
+    SpotsDialog.ui \
+    MergeColumns.ui \
+    SearchPanel.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

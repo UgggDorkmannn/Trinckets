@@ -5,6 +5,8 @@
 #include "NineButtons.h"
 #include "SortString.h"
 #include "SpotsDialog.h"
+#include "MergeColumns.h"
+#include "Notepad.h"
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -18,13 +20,14 @@ Widget::Widget(QWidget *parent) :
         ui->textEdit->setText(str);
         QApplication::clipboard()->setText(str);
     });
-    ui->lineEditCmd->setText("SpotsOnXY");
+    ui->lineEditCmd->setText("test");
     connect(ui->lineEditCmd,&QLineEdit::returnPressed,this,[=](){
         QString cmd = ui->lineEditCmd->text().trimmed();
         if(cmd == "help"){
             ui->textEdit->setText("9buttons");
             ui->textEdit->append("sortString");
             ui->textEdit->append("SpotsOnXY");
+            ui->textEdit->append("mergeColumns");
         }
         else if(cmd == "9buttons"){
             auto* w = new NineButtons;
@@ -41,6 +44,14 @@ Widget::Widget(QWidget *parent) :
             w->draw(posList);
             w->show();
 
+        }
+        else if(cmd == "mergeColumns"){
+            auto* w = new MergeColumns;
+            w->show();
+        }
+        else if(cmd == "test"){
+            auto* w = new Notepad;
+            w->show();
         }
     });
 }
